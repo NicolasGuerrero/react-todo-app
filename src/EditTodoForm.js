@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
-//props
-function NewTodoForm({ addTodo }) {
-  const INITIAL_STATE = { task: "" };
-
-  const [form, setForm] = useState(INITIAL_STATE);
+function EditTodoForm({ editTodo, id, task }) {
+  const [form, setForm] = useState(task);
 
   const handleSubmit = e => {
     e.preventDefault();
-    addTodo(form);
-    setForm(INITIAL_STATE);
+    editTodo(form);
+    setForm(form);
   };
 
   const handleChange = e => {
@@ -22,7 +19,7 @@ function NewTodoForm({ addTodo }) {
 
   return (
     <div className="container">
-      <form className="NewTodoForm" onSubmit={handleSubmit}>
+      <form className="EditTodoForm" onSubmit={handleSubmit}>
         <label htmlFor="task">Task:</label>
         <input
           id="task"
@@ -30,10 +27,10 @@ function NewTodoForm({ addTodo }) {
           value={form.task}
           onChange={handleChange}
         />
-        <button className="NewTodoForm-button">Add new task</button>
+        <button className="EditTodoForm-button">Update</button>
       </form>
     </div>
   );
 };
 
-export default NewTodoForm;
+export default EditTodoForm;

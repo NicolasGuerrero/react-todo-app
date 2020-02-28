@@ -25,7 +25,7 @@ function TodoList() {
     let newTodo = { ...todo, id: uuid() };
     setTodos(todos => [...todos, newTodo]);
   }
-  
+
   // remove Todo item
   const removeTodo = id => {
     setTodos(todos.filter(todo => todo.id !== id));
@@ -34,7 +34,7 @@ function TodoList() {
   // return 
   return (
     <div className="TodoList">
-      <NewTodoForm addTodo={addTodo}/>
+      <NewTodoForm addTodo={addTodo} />
       {renderTodoList()}
     </div>
   )
